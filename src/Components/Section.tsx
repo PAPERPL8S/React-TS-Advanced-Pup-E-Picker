@@ -1,48 +1,43 @@
-import { ReactNode } from "react";
+import React, { useState } from "react";
+import { useDogs } from "../Context/DogContext";
+import { Dogs } from "./Dogs";
+import { CreateDogForm } from "./CreateDogForm";
 
-export const Section = ({
-  label,
-  children,
-}: {
-  // No more props than these two allowed
-  label: string;
-  children: ReactNode;
-}) => {
+export const Section: React.FC<{ label: string }> = ({ label }) => {
+  const [activeTab, setActiveTab] = useState<"all" | "favorite" | "create">(
+    "all",
+  );
+  const { dogs } = useDogs();
+
+  const favoritesDogs = dogs.filter((dog) => dog.isFavorite);
+
   return (
     <section id="main-section">
       <div className="container-header">
         <div className="container-label">{label}</div>
         <div className="selectors">
-          {/* This should display the favorited count */}
           <div
-            className={`selector ${"active"}`}
-            onClick={() => {
-              alert("click favorited");
-            }}
-          >
-            favorited ( {0} )
-          </div>
-
-          {/* This should display the unfavorited count */}
-          <div
-            className={`selector ${""}`}
-            onClick={() => {
-              alert("click unfavorited");
-            }}
-          >
-            unfavorited ( {10} )
+            className={`selector ${activeTab === "favorite" ? "active" : ""}`}
+            onClick={() => setActiveTab("favorite")}>
+            favorited ({favoritesDogs.length})
           </div>
           <div
-            className={`selector ${""}`}
-            onClick={() => {
-              alert("clicked create dog");
-            }}
-          >
+            className={`selector ${activeTab === "all" ? "active" : ""}`}
+            onClick={() => setActiveTab("all")}>
+            all ({dogs.length})
+          </div>
+          <div
+            className={`selector ${activeTab === "create" ? "active" : ""}`}
+            onClick={() => setActiveTab("create")}>
             create dog
           </div>
         </div>
       </div>
-      <div className="content-container">{children}</div>
+      <div className="content-container">
+        {activeTab === "all" && <Dogs dogs={dogs} />}
+        {activeTab === "favorite" && <Dogs dogs={favoritesDogs} />}
+        {activeTab === "create" && <CreateDogForm />}
+      </div>
     </section>
   );
 };

@@ -1,128 +1,142 @@
 {
   "dogs": [
     {
-      "name": "Jonatan",
-      "image": "/src/assets/boxer.png",
-      "description": "Shoes after Dollar Marketing female generating Diesel",
+      "name": "Araceli",
+      "image": "/assets/blue-heeler.png",
+      "description": "siemens shortage Executive embrace attitude",
       "isFavorite": true,
       "id": 0
     },
     {
-      "name": "Anthony",
-      "image": "/src/assets/cowardly.png",
-      "description": "plum Savings female Ghana programming solutions miniaturise",
-      "isFavorite": true,
+      "name": "Alberto",
+      "image": "/assets/boxer.png",
+      "description": "array Books Consultant parking Southeast Bicycle female",
+      "isFavorite": false,
       "id": 1
     },
     {
-      "name": "Ana",
-      "image": "/src/assets/boxer.png",
-      "description": "Analyst function withdrawal United while",
+      "name": "Darion",
+      "image": "/assets/boxer.png",
+      "description": "untried Buckinghamshire Actinium Bike overriding assuage Wooden carbonise",
+      "isFavorite": true,
+      "id": 2
+    },
+    {
+      "name": "Lynn",
+      "image": "/assets/corgi.png",
+      "description": "West safely Consultant ohm Supervisor",
+      "isFavorite": false,
+      "id": 3
+    },
+    {
+      "name": "Nannie",
+      "image": "/assets/cowardly.png",
+      "description": "integrate Southwest brightly Account South",
       "isFavorite": false,
       "id": 4
     },
     {
-      "name": "Alfred",
-      "image": "/src/assets/cowardly.png",
-      "description": "Northwest DRAM henry applications South",
-      "isFavorite": false,
+      "name": "Leonardo",
+      "image": "/assets/blue-heeler.png",
+      "description": "below OCR salmon South F2M navigating UTF8 Livermorium",
+      "isFavorite": true,
       "id": 5
     },
     {
-      "name": "Violette",
-      "image": "/src/assets/boxer.png",
-      "description": "embrace Web Southwest perspiciatis though",
-      "isFavorite": true,
+      "name": "Santino",
+      "image": "/assets/dalmation.png",
+      "description": "male implementation South firewall DNS Metal Togo",
+      "isFavorite": false,
       "id": 6
     },
     {
-      "name": "Kenton",
-      "image": "/src/assets/cowardly.png",
-      "description": "Bedfordshire Human tempora Managed Electronic Directives Nissan expedite",
+      "name": "Effie",
+      "image": "/assets/corgi.png",
+      "description": "encryption benchmark enhance Buckinghamshire neural District biosphere taste",
       "isFavorite": true,
       "id": 7
     },
     {
-      "name": "Asa",
-      "image": "/src/assets/dalmation.png",
-      "description": "Minivan Neither Road Movies radian",
-      "isFavorite": false,
+      "name": "Mekhi",
+      "image": "/assets/boxer.png",
+      "description": "Southwest Industrial Planner Volvo West SUV ohm",
+      "isFavorite": true,
       "id": 8
     },
     {
-      "name": "Nicolas",
-      "image": "/src/assets/chihuahua.avif",
-      "description": "an Savings brink transmit card",
-      "isFavorite": false,
+      "name": "Lonzo",
+      "image": "/assets/boxer.png",
+      "description": "Northeast withdrawal payment Virginia which Livermorium unless",
+      "isFavorite": true,
       "id": 9
     },
     {
-      "name": "Elton",
-      "image": "/src/assets/blue-heeler.png",
-      "description": "Nihonium Electronic Nissan Metal because Computer white",
-      "isFavorite": false,
+      "name": "Sydnee",
+      "image": "/assets/cowardly.png",
+      "description": "ampere redundant personal Bicycle debitis",
+      "isFavorite": true,
       "id": 10
     },
     {
-      "name": "Dewayne",
-      "image": "/src/assets/dalmation.png",
-      "description": "Security override firewall Southeast apropos Usability orchid barrel",
-      "isFavorite": false,
+      "name": "Dennis",
+      "image": "/assets/corgi.png",
+      "description": "Towels Electric Plastic Soft Intelligent Technician Hatchback",
+      "isFavorite": true,
       "id": 11
     },
     {
-      "name": "Art",
-      "image": "/src/assets/blue-heeler.png",
-      "description": "Global ha Genderflux payment Metal pixel Money",
+      "name": "Jamey",
+      "image": "/assets/corgi.png",
+      "description": "Interactions Nepalese revolutionise Gasoline Bentley",
       "isFavorite": true,
       "id": 12
     },
     {
-      "name": "Sebastian",
-      "image": "/src/assets/boxer.png",
-      "description": "Associate Gasoline Savings Hybrid Developer",
-      "isFavorite": true,
+      "name": "Aleen",
+      "image": "/assets/corgi.png",
+      "description": "strategic Gasoline Manor Belize fortune pace stable",
+      "isFavorite": false,
       "id": 13
     },
     {
-      "name": "Lambert",
-      "image": "/src/assets/chihuahua.avif",
-      "description": "drive reek Marvin compress executive Coordinator Track bluetooth",
+      "name": "Darrick",
+      "image": "/assets/blue-heeler.png",
+      "description": "payment even Plastic Rubber Key",
       "isFavorite": false,
       "id": 14
     },
     {
-      "name": "Kris",
-      "image": "/src/assets/blue-heeler.png",
-      "description": "Beryllium Chevrolet partnerships focus Southeast Poland salmon",
-      "isFavorite": true,
+      "name": "Christop",
+      "image": "/assets/chihuahua.avif",
+      "description": "Baby blanditiis relay Configurable neural",
+      "isFavorite": false,
       "id": 15
     },
     {
-      "name": "Trudie",
-      "image": "/src/assets/boxer.png",
-      "description": "connecting blue National Movies Interactions ack Tandem Shirt",
-      "isFavorite": false,
+      "name": "Matilde",
+      "image": "/assets/boxer.png",
+      "description": "Xenon District but redevelop solid male Hatchback Wisozk",
+      "isFavorite": true,
       "id": 16
     },
     {
-      "name": "Meaghan",
-      "image": "/src/assets/dalmation.png",
-      "description": "lux Manager North applications Rufiyaa",
+      "name": "Gregory",
+      "image": "/assets/boxer.png",
+      "description": "withdrawal niches Credit Praseodymium male",
       "isFavorite": false,
       "id": 17
     },
     {
-      "name": "Vallie",
-      "image": "/src/assets/chihuahua.avif",
-      "description": "Lead synergistic noisy operating Passenger female Salad Rubber",
-      "isFavorite": true,
+      "name": "Odie",
+      "image": "/assets/dalmation.png",
+      "description": "until Cobalt index Cis West",
+      "isFavorite": false,
       "id": 18
     },
     {
-      "name": "Newton",
-      "image": "/src/assets/blue-heeler.png",
-      "description": "Planner maxime invoice ROI granular ouch Franc",
+      "name": "Brook",
+      "image": "/assets/chihuahua.avif",
+      "description": "veniam soft Luxurious Passenger Architect",
       "isFavorite": true,
       "id": 19
     }
