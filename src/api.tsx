@@ -25,7 +25,7 @@ export const getAllDogs = async (): Promise<Dog[]> => {
   }
 };
 
-export const postDog = async (dogData: Dog): Promise<Dog> => {
+export const createDog = async (dogData: Dog): Promise<Dog> => {
   try {
     const response = await fetch(API_BASE_URL, {
       method: "POST",

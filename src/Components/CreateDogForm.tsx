@@ -1,77 +1,52 @@
 import React, { useState } from "react";
-import { useDogs } from "../Context/DogContext";
-import { postDog } from "../api";
-import { toast } from "react-hot-toast";
-import { dogPictures } from "../dog-pictures";
-
-interface Dog {
-  name: string;
-  picture: string;
-  isFavorite: boolean;
-}
+import { useDogContext } from "../Context/DogContext";
+import toast from "react-hot-toast";
 
 export const CreateDogForm: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [selectedImage, setSelectedImage] = useState(dogPictures.BlueHeeler);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { refreshDogs } = useDogs();
+  const [picture, setPicture] = useState("");
+  const { addDog } = useDogContext();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    const newDog = {
+      id: Date.now(),
+      name,
+      description,
+      picture,
+      isFavorite: false,
+    };
 
-    try {
-      await postDog({
-        name,
-        description,
-        picture: selectedImage,
-        isFavorite: false,
-      } as Dog);
-      toast.success("Dog Created");
-      refreshDogs();
-      setName("");
-      setDescription("");
-      setSelectedImage(dogPictures.BlueHeeler);
-    } catch (error) {
-      toast.error("Failed to create dog");
-    } finally {
-      setIsSubmitting(false);
-    }
+    await addDog(newDog);
+    toast.success("Dog Created");
+    setName("");
+    setDescription("");
+    setPicture("");
   };
 
   return (
-    <form id="create-dog-form" onSubmit={handleSubmit}>
-      <h4>Create a New Dog</h4>
-      <label htmlFor="name">Dog Name</label>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
-        id="name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        disabled={isSubmitting}
+        placeholder="Dog Name"
         required
       />
-      <label htmlFor="description">Dog Description</label>
-      <textarea
-        id="description"
+      <input
+        type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        disabled={isSubmitting}
-        required></textarea>
-      <label htmlFor="picture">Select an Image</label>
-      <select
-        id="picture"
-        value={selectedImage}
-        onChange={(e) => setSelectedImage(e.target.value)}
-        disabled={isSubmitting}>
-        {Object.entries(dogPictures).map(([label, pictureValue]) => (
-          <option value={pictureValue} key={pictureValue}>
-            {label}
-          </option>
-        ))}
-      </select>
-      <input type="submit" value="Submit" disabled={isSubmitting} />
+        placeholder="Dog Description"
+      />
+      <input
+        type="text"
+        value={picture}
+        onChange={(e) => setPicture(e.target.value)}
+        placeholder="Picture URL"
+      />
+      <button type="submit">Create Dog</button>
     </form>
   );
 };

@@ -11,7 +11,7 @@
       "name": "Alberto",
       "image": "/assets/boxer.png",
       "description": "array Books Consultant parking Southeast Bicycle female",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 1
     },
     {
