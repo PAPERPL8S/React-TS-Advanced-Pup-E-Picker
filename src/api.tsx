@@ -4,7 +4,7 @@ export interface Dog {
   id?: number;
   name: string;
   isFavorite: boolean;
-  picture?: string;
+  Image?: string;
 }
 
 const checkResponse = async (response: Response) => {

@@ -39,7 +39,7 @@
       "name": "Leonardo",
       "image": "/assets/blue-heeler.png",
       "description": "below OCR salmon South F2M navigating UTF8 Livermorium",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 5
     },
     {
@@ -53,21 +53,21 @@
       "name": "Effie",
       "image": "/assets/corgi.png",
       "description": "encryption benchmark enhance Buckinghamshire neural District biosphere taste",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 7
     },
     {
       "name": "Mekhi",
       "image": "/assets/boxer.png",
       "description": "Southwest Industrial Planner Volvo West SUV ohm",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 8
     },
     {
       "name": "Lonzo",
       "image": "/assets/boxer.png",
       "description": "Northeast withdrawal payment Virginia which Livermorium unless",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 9
     },
     {
@@ -95,28 +95,28 @@
       "name": "Aleen",
       "image": "/assets/corgi.png",
       "description": "strategic Gasoline Manor Belize fortune pace stable",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 13
     },
     {
       "name": "Darrick",
       "image": "/assets/blue-heeler.png",
       "description": "payment even Plastic Rubber Key",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 14
     },
     {
       "name": "Christop",
       "image": "/assets/chihuahua.avif",
       "description": "Baby blanditiis relay Configurable neural",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 15
     },
     {
       "name": "Matilde",
       "image": "/assets/boxer.png",
       "description": "Xenon District but redevelop solid male Hatchback Wisozk",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 16
     },
     {
@@ -139,6 +139,13 @@
       "description": "veniam soft Luxurious Passenger Architect",
       "isFavorite": true,
       "id": 19
+    },
+    {
+      "id": 1725298626213,
+      "name": "dsdf",
+      "description": "sfsdfsds",
+      "Image": "boxer.jpeg",
+      "isFavorite": false
     }
   ]
 }

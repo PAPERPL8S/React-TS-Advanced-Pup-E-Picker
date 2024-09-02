@@ -1,9 +1,10 @@
 import React from "react";
 import { useDogContext } from "../Context/DogContext";
+import { Dog } from "../types";
+import { dogPictures } from "../dog-pictures";
 
-
-export const Dogs: React.FC = () => {
-  const { dogs, toggleFavorite, removeDog, loading } = useDogContext();
+export const Dogs: React.FC<{ dogs: Dog[] }> = ({ dogs }) => {
+  const { toggleFavorite, removeDog, loading } = useDogContext();
 
   if (loading) {
     return <p>Loading...</p>;
@@ -18,9 +19,10 @@ export const Dogs: React.FC = () => {
       {dogs.map((dog) => (
         <div key={dog.id} className="dog-card">
           <div className="dog-info">
-            <img src={dog.image || "/default-dog.png"} alt={dog.name} />
-            <h3>{dog.name}</h3>
+            <h3 className="dog-name">{dog.name}</h3>
+            <img src={dog.image || dogPictures.BlueHeeler} alt={dog.name} />
           </div>
+          <p className="dog-description">{dog.description}</p>
           <div className="dog-actions">
             <button onClick={() => toggleFavorite(dog.id)}>
               {dog.isFavorite ? "❤️" : "🤍"}
@@ -32,4 +34,3 @@ export const Dogs: React.FC = () => {
     </div>
   );
 };
-

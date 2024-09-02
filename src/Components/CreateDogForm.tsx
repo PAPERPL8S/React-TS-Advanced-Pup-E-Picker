@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 export const CreateDogForm: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [picture, setPicture] = useState("");
+  const [Image, setImage] = useState("");
   const { addDog } = useDogContext();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -14,7 +14,7 @@ export const CreateDogForm: React.FC = () => {
       id: Date.now(),
       name,
       description,
-      picture,
+      Image,
       isFavorite: false,
     };
 
@@ -22,31 +22,48 @@ export const CreateDogForm: React.FC = () => {
     toast.success("Dog Created");
     setName("");
     setDescription("");
-    setPicture("");
+    setImage("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form id="create-dog-form" onSubmit={handleSubmit}>
+      <h2>Create a New Dog</h2>
+
+      <h4>Dog Name</h4>
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="Dog Name"
+        title="Dog Name"
         required
       />
+
+      <h4>Dog Description</h4>
       <input
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        placeholder="Dog Description"
+        title="Dog Description"
+        placeholder=""
       />
-      <input
-        type="text"
-        value={picture}
-        onChange={(e) => setPicture(e.target.value)}
-        placeholder="Picture URL"
-      />
-      <button type="submit">Create Dog</button>
+
+      <h4>Select an Image</h4>
+      <select
+        value={Image}
+        onChange={(e) => setImage(e.target.value)}
+        title="Select an Image"
+        required>
+        <option value="blue-heeler.png">Blue Heeler</option>
+        <option value="boxer.jpeg">Boxer</option>
+        <option value="chihuahua.avif">Chihuahua</option>
+        <option value="corgi.png">Corgi</option>
+        <option value="cowardly.png">Cowardly</option>
+        <option value="dalmation.png">Dalmation</option>
+      </select>
+
+      <button className="btn" type="submit">
+        Submit
+      </button>
     </form>
   );
 };
