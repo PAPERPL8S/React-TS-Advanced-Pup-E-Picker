@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import { useDogContext } from "../Context/DogContext";
 import toast from "react-hot-toast";
 
+interface Dog {
+  id: number;
+  name: string;
+  description: string;
+  Image: string;
+  isFavorite: boolean;
+}
+
 export const CreateDogForm: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -10,7 +18,7 @@ export const CreateDogForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const newDog = {
+    const newDog: Dog = {
       id: Date.now(),
       name,
       description,

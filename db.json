@@ -4,21 +4,21 @@
       "name": "Araceli",
       "image": "/assets/blue-heeler.png",
       "description": "siemens shortage Executive embrace attitude",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 0
     },
     {
       "name": "Alberto",
       "image": "/assets/boxer.png",
       "description": "array Books Consultant parking Southeast Bicycle female",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 1
     },
     {
       "name": "Darion",
       "image": "/assets/boxer.png",
       "description": "untried Buckinghamshire Actinium Bike overriding assuage Wooden carbonise",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 2
     },
     {
@@ -139,13 +139,6 @@
       "description": "veniam soft Luxurious Passenger Architect",
       "isFavorite": true,
       "id": 19
-    },
-    {
-      "id": 1725298626213,
-      "name": "dsdf",
-      "description": "sfsdfsds",
-      "Image": "boxer.jpeg",
-      "isFavorite": false
     }
   ]
 }

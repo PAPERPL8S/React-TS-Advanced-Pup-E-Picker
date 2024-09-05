@@ -8,6 +8,7 @@ import { DogProvider } from "./Context/DogContext";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <DogProvider>
+      {" "}
       <Toaster />
       <App />
     </DogProvider>

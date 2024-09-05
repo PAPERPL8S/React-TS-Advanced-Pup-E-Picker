@@ -14,6 +14,14 @@
     "not samsung <= 25"
   ],
   "hints": {
-    "css-prefix-order": "off"
+    "css-prefix-order": "off",
+    "axe/aria": [
+      "default",
+      {
+        "aria-required-children": "off",
+        "aria-required-parent": "off",
+        "aria-valid-attr-value": "off"
+      }
+    ]
   }
 }

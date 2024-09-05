@@ -1,9 +1,8 @@
 import React from "react";
-import { Section } from "./Section";
+import Section from "./Section";
 import { CreateDogForm } from "./CreateDogForm";
 import { Dogs } from "./Dogs";
 import { Dog, DogProvider, useDogContext } from "../Context/DogContext";
-
 
 export function App() {
   return (
@@ -34,15 +33,23 @@ const MainContent: React.FC = () => {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <Section label={""}>
+    <Section>
       {activeSection !== "create" && (
         <Dogs
-          dogs={dogs.filter((dog) => {
-            dog.image = dog.image || "";
-            if (activeSection === "favorite") return dog.isFavorite;
-            if (activeSection === "unfavorite") return !dog.isFavorite;
-            return true;
-          }) as { image: string; id: number; name: string; description: string; isFavorite: boolean; }[]}
+          dogs={
+            dogs.filter((dog) => {
+              dog.image = dog.image || "";
+              if (activeSection === "favorite") return dog.isFavorite;
+              if (activeSection === "unfavorite") return !dog.isFavorite;
+              return true;
+            }) as {
+              image: string;
+              id: number;
+              name: string;
+              description: string;
+              isFavorite: boolean;
+            }[]
+          }
         />
       )}
       {activeSection === "create" && <CreateDogForm />}
