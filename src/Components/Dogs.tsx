@@ -27,9 +27,7 @@ export const Dogs: React.FC<{ dogs: Dog[] }> = ({ dogs }) => {
             <button onClick={() => toggleFavorite(dog.id)}>
               {dog.isFavorite ? "❤️" : "🤍"}
             </button>
-            <button onClick={() => removeDog(dog.id)}>
-              🗑️
-            </button>
+            <button onClick={() => removeDog(dog.id)}>🗑️</button>
           </div>
         </div>
       ))}

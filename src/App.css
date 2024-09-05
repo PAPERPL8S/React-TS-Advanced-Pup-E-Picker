@@ -167,8 +167,7 @@ body {
 
 .dog-card img {
   width: 100%;
-  max-height: 50%;
-  height: 175px;
+  max-height: 175px;
   resize: both;
   border-bottom: 5px solid black;
 }
