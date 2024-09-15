@@ -4,14 +4,14 @@
       "name": "Araceli",
       "image": "/assets/blue-heeler.png",
       "description": "siemens shortage Executive embrace attitude",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 0
     },
     {
       "name": "Alberto",
       "image": "/assets/boxer.png",
       "description": "array Books Consultant parking Southeast Bicycle female",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 1
     },
     {
@@ -25,21 +25,21 @@
       "name": "Lynn",
       "image": "/assets/corgi.png",
       "description": "West safely Consultant ohm Supervisor",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 3
     },
     {
       "name": "Nannie",
       "image": "/assets/cowardly.png",
       "description": "integrate Southwest brightly Account South",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 4
     },
     {
       "name": "Leonardo",
       "image": "/assets/blue-heeler.png",
       "description": "below OCR salmon South F2M navigating UTF8 Livermorium",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 5
     },
     {
@@ -67,7 +67,7 @@
       "name": "Lonzo",
       "image": "/assets/boxer.png",
       "description": "Northeast withdrawal payment Virginia which Livermorium unless",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 9
     },
     {
@@ -116,14 +116,14 @@
       "name": "Matilde",
       "image": "/assets/boxer.png",
       "description": "Xenon District but redevelop solid male Hatchback Wisozk",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 16
     },
     {
       "name": "Gregory",
       "image": "/assets/boxer.png",
       "description": "withdrawal niches Credit Praseodymium male",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 17
     },
     {

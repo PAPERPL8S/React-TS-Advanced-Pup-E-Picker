@@ -1,36 +1,37 @@
 import React, { useState } from "react";
 import { useDogContext } from "../Context/DogContext";
 import toast from "react-hot-toast";
-
-interface Dog {
-  id: number;
-  name: string;
-  description: string;
-  Image: string;
-  isFavorite: boolean;
-}
+import { Dog } from "../types";
 
 export const CreateDogForm: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [Image, setImage] = useState("");
-  const { addDog } = useDogContext();
+  const [image, setImage] = useState("");
+  const { addDog, loading } = useDogContext();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const newDog: Dog = {
-      id: Date.now(),
-      name,
-      description,
-      Image,
-      isFavorite: false,
-    };
-
-    await addDog(newDog);
-    toast.success("Dog Created");
+  const resetForm = () => {
     setName("");
     setDescription("");
     setImage("");
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const newDog: Omit<Dog, "id"> = {
+      name,
+      description,
+      image,
+      isFavorite: false,
+    };
+
+    await addDog(newDog)
+      .then(() => {
+        toast.success("Dog Created");
+        resetForm();
+      })
+      .catch(() => {
+        toast.error("Failed to create dog");
+      });
   };
 
   return (
@@ -43,23 +44,25 @@ export const CreateDogForm: React.FC = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
         title="Dog Name"
+        disabled={loading}
         required
       />
 
       <h4>Dog Description</h4>
-      <input
-        type="text"
+      <textarea
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         title="Dog Description"
+        disabled={loading}
         placeholder=""
       />
 
       <h4>Select an Image</h4>
       <select
-        value={Image}
+        value={image}
         onChange={(e) => setImage(e.target.value)}
         title="Select an Image"
+        disabled={loading}
         required>
         <option value="blue-heeler.png">Blue Heeler</option>
         <option value="boxer.jpeg">Boxer</option>
@@ -69,7 +72,7 @@ export const CreateDogForm: React.FC = () => {
         <option value="dalmation.png">Dalmation</option>
       </select>
 
-      <button className="btn" type="submit">
+      <button className="btn" type="submit" disabled={loading}>
         Submit
       </button>
     </form>

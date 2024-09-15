@@ -1,22 +1,20 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { createDog, getAllDogs, patchFavoriteForDog, deleteDog } from "../api";
+import { Dog } from "../types";
 
-export type Dog = {
-  id: number;
-  name: string;
-  description?: string;
-  image?: string;
-  isFavorite: boolean;
-};
+type TActiveSectionTab = "favorite" | "non-favorite" | "all" | "create";
 
 export type DogContextType = {
   dogs: Dog[];
   loading: boolean;
   activeSection: string;
+  favDogsCounter: number;
+  nonFavDogsCounter: number;
   setActiveSection: (section: string) => void;
-  addDog: (dog: Dog) => void;
+  addDog: (dog: Omit<Dog, "id">) => Promise<void>;
   toggleFavorite: (id: number) => void;
   removeDog: (id: number) => void;
+  handleTabClick: (tab: TActiveSectionTab) => void;
 };
 
 const DogContext = createContext<DogContextType | undefined>(undefined);
@@ -25,34 +23,42 @@ export const DogProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [dogs, setDogs] = useState<Dog[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [activeSection, setActiveSection] = useState<string>("all");
+  const [loading, setLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState("all");
+
+  const fetchDogs = async () => {
+    try {
+      const fetchedDogs = await getAllDogs();
+      setDogs(fetchedDogs);
+    } catch (error) {
+      console.error("Failed to fetch dogs:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchDogs = async () => {
-      try {
-        const fetchedDogs = await getAllDogs();
-        setDogs(fetchedDogs.filter((dog) => dog.id !== undefined) as Dog[]);
-      } catch (error) {
-        console.error("Failed to fetch dogs:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchDogs();
   }, []);
 
-  const addDog = async (newDog: Dog) => {
+  const favoritesDogs = dogs.filter((dog) => dog.isFavorite);
+  const unfavoritesDogs = dogs.filter((dog) => !dog.isFavorite);
+
+  const handleTabClick = (tab: TActiveSectionTab) => {
+    setActiveSection(activeSection === tab ? "all" : tab);
+  };
+
+  const addDog = async (newDog: Omit<Dog, "id">) => {
     try {
       const createdDog = await createDog(newDog);
       if (createdDog) {
-        setDogs((prevDogs) => [...prevDogs, createdDog as Dog]);
+        await fetchDogs();
       } else {
         console.error("Failed to create dog, received undefined");
       }
     } catch (error) {
       console.error("Failed to create dog:", error);
+      throw Error("Failed to create dog");
     }
   };
 
@@ -70,11 +76,7 @@ export const DogProvider: React.FC<{ children: React.ReactNode }> = ({
       }
     } catch (error) {
       console.error("Failed to update dog's favorite status:", error);
-      setDogs((prevDogs) =>
-        prevDogs.map((dog) =>
-          dog.id === id ? { ...dog, isFavorite: !dog.isFavorite } : dog,
-        ),
-      );
+      setDogs(dogs);
     }
   };
 
@@ -85,19 +87,30 @@ export const DogProvider: React.FC<{ children: React.ReactNode }> = ({
       await deleteDog(id);
     } catch (error) {
       console.error("Failed to delete dog:", error);
+      setDogs(dogs);
     }
+  };
+
+  const dogList: Record<TActiveSectionTab, Dog[]> = {
+    all: dogs,
+    favorite: favoritesDogs,
+    "non-favorite": unfavoritesDogs,
+    create: [],
   };
 
   return (
     <DogContext.Provider
       value={{
-        dogs,
+        dogs: dogList[activeSection as keyof typeof dogList],
         loading,
         activeSection,
+        favDogsCounter: favoritesDogs.length,
+        nonFavDogsCounter: unfavoritesDogs.length,
         setActiveSection,
         addDog,
         toggleFavorite,
         removeDog,
+        handleTabClick,
       }}>
       {children}
     </DogContext.Provider>

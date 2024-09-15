@@ -1,11 +1,5 @@
 const API_BASE_URL = "http://localhost:3000/dogs";
-
-export interface Dog {
-  id?: number;
-  name: string;
-  isFavorite: boolean;
-  Image?: string;
-}
+import { Dog } from "./types";
 
 const checkResponse = async (response: Response) => {
   if (!response.ok) {
@@ -25,7 +19,7 @@ export const getAllDogs = async (): Promise<Dog[]> => {
   }
 };
 
-export const createDog = async (dogData: Dog): Promise<Dog> => {
+export const createDog = async (dogData: Omit<Dog, "id">): Promise<Dog> => {
   try {
     const response = await fetch(API_BASE_URL, {
       method: "POST",

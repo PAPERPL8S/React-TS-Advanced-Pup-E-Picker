@@ -1,10 +1,8 @@
-import React from "react";
 import { useDogContext } from "../Context/DogContext";
-import { Dog } from "../types";
 import { dogPictures } from "../dog-pictures";
 
-export const Dogs: React.FC<{ dogs: Dog[] }> = ({ dogs }) => {
-  const { toggleFavorite, removeDog, loading } = useDogContext();
+export const Dogs = () => {
+  const { toggleFavorite, dogs, removeDog, loading } = useDogContext();
 
   if (loading) {
     return <p>Loading...</p>;

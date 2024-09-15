@@ -1,99 +1,49 @@
-import React, { useState, ReactNode } from "react";
+import { ReactNode } from "react";
 import { useDogContext } from "../Context/DogContext";
-import { Dogs } from "./Dogs";
-import { CreateDogForm } from "./CreateDogForm";
 
 interface Section {
   label?: string;
   children?: ReactNode;
 }
 
-export const Section: React.FC<Section> = ({ label }) => {
-  const [activeTab, setActiveTab] = useState<
-    "favorite" | "non-favorite" | "create" | null
-  >(null);
-  const { dogs } = useDogContext();
-
-  const favoritesDogs = dogs.filter((dog) => dog.isFavorite);
-  const unfavoritesDogs = dogs.filter((dog) => !dog.isFavorite);
-
-  const handleTabClick = (tab: "favorite" | "non-favorite" | "create") => {
-    setActiveTab(activeTab === tab ? null : tab);
-  };
+export const Section = ({ children }: { children: ReactNode }) => {
+  const { favDogsCounter, nonFavDogsCounter, activeSection, handleTabClick } =
+    useDogContext();
 
   return (
     <section id="main-section">
       <div className="container-header">
-        <div className="container-label">{label}</div>
+        <div className="container-label"></div>
         <div className="selectors">
           <div
-            className={`selector ${activeTab === "favorite" ? "active" : ""}`}
+            className={`selector ${
+              activeSection === "favorite" ? "active" : ""
+            }`}
             onClick={() => handleTabClick("favorite")}
             role="tab"
-            aria-selected={activeTab === "favorite"}>
-            Favorites ({favoritesDogs.length})
+            aria-selected={activeSection === "favorite"}>
+            Favorites ({favDogsCounter})
           </div>
           <div
             className={`selector ${
-              activeTab === "non-favorite" ? "active" : ""
+              activeSection === "non-favorite" ? "active" : ""
             }`}
             onClick={() => handleTabClick("non-favorite")}
             role="tab"
-            aria-selected={activeTab === "non-favorite"}>
-            Non-Favorites ({unfavoritesDogs.length})
+            aria-selected={activeSection === "non-favorite"}>
+            Non-Favorites ({nonFavDogsCounter})
           </div>
 
           <div
-            className={`selector ${activeTab === "create" ? "active" : ""}`}
+            className={`selector ${activeSection === "create" ? "active" : ""}`}
             onClick={() => handleTabClick("create")}
             role="tab"
-            aria-selected={activeTab === "create"}>
+            aria-selected={activeSection === "create"}>
             Create Dog
           </div>
         </div>
       </div>
-      <div className="content-container">
-        {activeTab === null && (
-          <Dogs
-            dogs={
-              dogs as {
-                name: string;
-                description: string;
-                image: string;
-                id: number;
-                isFavorite: boolean;
-              }[]
-            }
-          />
-        )}
-        {activeTab === "favorite" && (
-          <Dogs
-            dogs={
-              favoritesDogs as {
-                name: string;
-                description: string;
-                image: string;
-                id: number;
-                isFavorite: boolean;
-              }[]
-            }
-          />
-        )}
-        {activeTab === "non-favorite" && (
-          <Dogs
-            dogs={
-              unfavoritesDogs as {
-                name: string;
-                description: string;
-                image: string;
-                id: number;
-                isFavorite: boolean;
-              }[]
-            }
-          />
-        )}
-        {activeTab === "create" && <CreateDogForm />}
-      </div>
+      <div className="content-container">{children}</div>
     </section>
   );
 };
