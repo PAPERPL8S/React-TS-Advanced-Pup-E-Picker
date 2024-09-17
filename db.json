@@ -4,21 +4,21 @@
       "name": "Araceli",
       "image": "/assets/blue-heeler.png",
       "description": "siemens shortage Executive embrace attitude",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 0
     },
     {
       "name": "Alberto",
       "image": "/assets/boxer.png",
       "description": "array Books Consultant parking Southeast Bicycle female",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 1
     },
     {
       "name": "Darion",
       "image": "/assets/boxer.png",
       "description": "untried Buckinghamshire Actinium Bike overriding assuage Wooden carbonise",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 2
     },
     {
@@ -67,7 +67,7 @@
       "name": "Lonzo",
       "image": "/assets/boxer.png",
       "description": "Northeast withdrawal payment Virginia which Livermorium unless",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 9
     },
     {
@@ -146,6 +146,13 @@
       "image": "",
       "isFavorite": true,
       "id": 20
+    },
+    {
+      "name": "asdsd",
+      "description": "sadwwfwasd",
+      "image": "/assets/boxer.jpeg",
+      "isFavorite": false,
+      "id": 21
     }
   ]
 }

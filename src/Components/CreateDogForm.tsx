@@ -2,21 +2,12 @@ import React, { useState } from "react";
 import { useDogContext } from "../Context/DogContext";
 import toast from "react-hot-toast";
 import { Dog } from "../types";
-
+import { dogPictures } from "../dog-pictures";
 
 export const CreateDogForm: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
-
-  const dogPictures = {
-    "Blue Heeler": "/assets/blue-heeler.png",
-    "Boxer": "/assets/boxer.jpeg",
-    "Chihuahua": "/assets/chihuahua.avif",
-    "Corgi": "/assets/corgi.png",
-    "Cowardly": "/assets/cowardly.png",
-    "Dalmation": "/assets/dalmation.png",
-  };
 
   const { addDog, loading } = useDogContext();
 
