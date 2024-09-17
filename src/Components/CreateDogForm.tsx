@@ -3,6 +3,7 @@ import { useDogContext } from "../Context/DogContext";
 import toast from "react-hot-toast";
 import { Dog } from "../types";
 
+
 export const CreateDogForm: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -74,7 +75,7 @@ export const CreateDogForm: React.FC = () => {
         title="Select an Image"
         disabled={loading}
         required
-      >
+      > 
         {Object.entries(dogPictures).map((item) => {
           return (
             <option key={item[0]} value={item[1]}>

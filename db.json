@@ -116,7 +116,7 @@
       "name": "Matilde",
       "image": "/assets/boxer.png",
       "description": "Xenon District but redevelop solid male Hatchback Wisozk",
-      "isFavorite": true,
+      "isFavorite": false,
       "id": 16
     },
     {
@@ -130,7 +130,7 @@
       "name": "Odie",
       "image": "/assets/dalmation.png",
       "description": "until Cobalt index Cis West",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 18
     },
     {
@@ -144,7 +144,7 @@
       "name": "Prima Bella",
       "description": "American Pitbull Terrier/Belgian Malinois Mix",
       "image": "",
-      "isFavorite": false,
+      "isFavorite": true,
       "id": 20
     }
   ]
