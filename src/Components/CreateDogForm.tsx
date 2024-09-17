@@ -7,6 +7,16 @@ export const CreateDogForm: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
+
+  const dogPictures = {
+    "Blue Heeler": "/assets/blue-heeler.png",
+    "Boxer": "/assets/boxer.jpeg",
+    "Chihuahua": "/assets/chihuahua.avif",
+    "Corgi": "/assets/corgi.png",
+    "Cowardly": "/assets/cowardly.png",
+    "Dalmation": "/assets/dalmation.png",
+  };
+
   const { addDog, loading } = useDogContext();
 
   const resetForm = () => {
@@ -63,13 +73,15 @@ export const CreateDogForm: React.FC = () => {
         onChange={(e) => setImage(e.target.value)}
         title="Select an Image"
         disabled={loading}
-        required>
-        <option value="blue-heeler.png">Blue Heeler</option>
-        <option value="boxer.jpeg">Boxer</option>
-        <option value="chihuahua.avif">Chihuahua</option>
-        <option value="corgi.png">Corgi</option>
-        <option value="cowardly.png">Cowardly</option>
-        <option value="dalmation.png">Dalmation</option>
+        required
+      >
+        {Object.entries(dogPictures).map((item) => {
+          return (
+            <option key={item[0]} value={item[1]}>
+              {item[0]}
+            </option>
+          );
+        })}
       </select>
 
       <button className="btn" type="submit" disabled={loading}>

@@ -23,7 +23,7 @@ export const DogProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [dogs, setDogs] = useState<Dog[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [activeSection, setActiveSection] = useState("all");
 
   const fetchDogs = async () => {
@@ -32,8 +32,6 @@ export const DogProvider: React.FC<{ children: React.ReactNode }> = ({
       setDogs(fetchedDogs);
     } catch (error) {
       console.error("Failed to fetch dogs:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -49,6 +47,7 @@ export const DogProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const addDog = async (newDog: Omit<Dog, "id">) => {
+    setLoading(true);
     try {
       const createdDog = await createDog(newDog);
       if (createdDog) {
@@ -56,6 +55,7 @@ export const DogProvider: React.FC<{ children: React.ReactNode }> = ({
       } else {
         console.error("Failed to create dog, received undefined");
       }
+      setLoading(false);
     } catch (error) {
       console.error("Failed to create dog:", error);
       throw Error("Failed to create dog");

@@ -139,6 +139,13 @@
       "description": "veniam soft Luxurious Passenger Architect",
       "isFavorite": true,
       "id": 19
+    },
+    {
+      "name": "Prima Bella",
+      "description": "American Pitbull Terrier/Belgian Malinois Mix",
+      "image": "",
+      "isFavorite": false,
+      "id": 20
     }
   ]
 }

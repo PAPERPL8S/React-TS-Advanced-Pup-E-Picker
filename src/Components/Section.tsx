@@ -1,11 +1,6 @@
 import { ReactNode } from "react";
 import { useDogContext } from "../Context/DogContext";
 
-interface Section {
-  label?: string;
-  children?: ReactNode;
-}
-
 export const Section = ({ children }: { children: ReactNode }) => {
   const { favDogsCounter, nonFavDogsCounter, activeSection, handleTabClick } =
     useDogContext();
